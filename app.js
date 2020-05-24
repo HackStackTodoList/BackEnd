@@ -7,16 +7,21 @@ var path = require('path');
 var app = express();
 
 const route = require('./routes/route');
-const mongoUrl='mongodb://localhost:27017/todoList';
-//const mongoUrl='mongodb+srv://kalpesh:kalpesh@cluster0-rzqx3.mongodb.net/test?retryWrites=true&w=majority';
+
+const mongoUrl = 'mongodb://localhost:27017/todoList';
 // connection to mongodb
 mongoose.connect(mongoUrl, {
     useUnifiedTopology: true,
     useNewUrlParser: true,
-    useFindAndModify:false
+    useFindAndModify: false
 });
-//mongoose.set('useFindAndModify', false);
-// suuccess with mongo
+/*
+mongoose.connect('mongodb://localhost:27017/user', {
+    useUnifiedTopology: true,
+    useNewUrlParser: true,
+    useFindAndModify: false
+});*/
+// success with mongo
 mongoose.connection.on('connected', () => {
     console.log('connected to database ');
 
