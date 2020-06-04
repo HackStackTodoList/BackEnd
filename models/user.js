@@ -1,26 +1,19 @@
 const mongoose = require('mongoose');
 
-const TaskSchema = mongoose.Schema({
-    task_name: {
+const UserAuthSchema = mongoose.Schema({
+    name: {
         type: String,
         required: true
     },
-    due_date: {
-        type: Date,
-        required: false
-    },
-    status: {
+    username: {
         type: String,
-        required: true
+        required: true,
+
     },
-    start_date: {
-        type: Date,
-        required: false
-    },
-    description: {
+    password: {
         type: String,
         required: true
     }
 });
 
-const Task = module.exports = mongoose.model('Task', TaskSchema);
+const User = module.exports = mongoose.model('User', UserAuthSchema);

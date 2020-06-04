@@ -4,11 +4,15 @@ var bodyparser = require('body-parser');
 var cors = require('cors');
 var path = require('path');
 
+
 var app = express();
 
 const route = require('./routes/route');
+const authRoutes = require('./routes/user-auth.routes');
 
-const mongoUrl = 'mongodb://localhost:27017/todoList';
+
+//const mongoUrl = 'mongodb://localhost:27017/todoList';
+const mongoUrl ='mongodb+srv://kalpesh:kalpesh@cluster0-9op8q.mongodb.net/<dbname>?retryWrites=true&w=majority'
 // connection to mongodb
 mongoose.connect(mongoUrl, {
     useUnifiedTopology: true,
@@ -42,7 +46,7 @@ app.use(bodyparser.json());
 
 //add route 
 app.use('/api', route)
-
+app.use('/api', authRoutes)
 //static files
 app.use(express.static(path.join(__dirname, 'public')));
 
