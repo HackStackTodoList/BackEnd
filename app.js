@@ -17,7 +17,8 @@ const mongoUrl ='mongodb+srv://kalpesh:kalpesh@cluster0-9op8q.mongodb.net/<dbnam
 mongoose.connect(mongoUrl, {
     useUnifiedTopology: true,
     useNewUrlParser: true,
-    useFindAndModify: false
+    useFindAndModify: false,
+    useCreateIndex:true 
 });
 /*
 mongoose.connect('mongodb://localhost:27017/user', {
