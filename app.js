@@ -7,12 +7,12 @@ var path = require('path');
 
 var app = express();
 
-const route = require('./routes/route');
+const route = require('./routes/task.route');
 const authRoutes = require('./routes/user-auth.routes');
 
 
-//const mongoUrl = 'mongodb://localhost:27017/todoList';
-const mongoUrl ='mongodb+srv://kalpesh:kalpesh@cluster0-9op8q.mongodb.net/<dbname>?retryWrites=true&w=majority'
+const mongoUrl = 'mongodb://localhost:27017/todoList';
+
 // connection to mongodb
 mongoose.connect(mongoUrl, {
     useUnifiedTopology: true,
@@ -20,12 +20,7 @@ mongoose.connect(mongoUrl, {
     useFindAndModify: false,
     useCreateIndex:true 
 });
-/*
-mongoose.connect('mongodb://localhost:27017/user', {
-    useUnifiedTopology: true,
-    useNewUrlParser: true,
-    useFindAndModify: false
-});*/
+
 // success with mongo
 mongoose.connection.on('connected', () => {
     console.log('connected to database ');

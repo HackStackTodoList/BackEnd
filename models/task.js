@@ -13,17 +13,17 @@ const TaskSchema = mongoose.Schema({
         type: String,
         required: true
     },
-    start_date: {
-        type: Date,
-        required: false
-    },
     description: {
         type: String,
         required: true
     },
-    user_id:{
+    user_id: {
         type: String,
-        reruired:true
+        required: true
+    },
+    category: {
+        type: String,
+        required: true
     }
 });
 
